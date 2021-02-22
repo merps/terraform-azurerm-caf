@@ -97,11 +97,44 @@ keyvaults = {
       logged_in_user = {
         certificate_permissions = ["Get", "List", "Update", "Create", "Import", "Delete", "Purge", "Recover"]
         secret_permissions      = ["Set", "Get", "List", "Delete", "Purge", "Recover"]
+        key_permissions         = ["get", "create", "delete"]
       }
     }
   }
 }
 
+keyvault_keys = {
+  disk_encryption_key = {
+    name = "example-vm1"
+    keyvault_key = "example_vm_rg1"
+    
+    key_type     = "RSA"
+    key_size     = 2048
+
+    key_opts = [
+      "decrypt",
+      "encrypt",
+      "sign",
+      "unwrapKey",
+      "verify",
+      "wrapKey",
+    ]  
+  }
+}
+
+azurerm_disk_encryption_sets = {
+  disk_encryption_set = {
+    name = "disk_encryption_set"
+    resource_group_key = "vm_region1"
+    keyvault_key = {
+      key = "disk_encryption_key"
+      # lz_key = ""
+    }
+    tags = {
+      data_classification = "PII"
+    }
+  }
+}
 
 vnets = {
   vnet_region1 = {

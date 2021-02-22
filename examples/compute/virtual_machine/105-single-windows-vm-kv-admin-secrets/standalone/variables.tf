@@ -110,3 +110,9 @@ variable application_gateway_applications {
 variable dynamic_keyvault_secrets {
   default = {}
 }
+variable keyvault_keys {
+  default = {}
+}
+variable azurerm_disk_encryption_sets {
+  default = {}
+}

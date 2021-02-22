@@ -16,7 +16,8 @@ module "caf" {
   }
 
   compute = {
-    virtual_machines = var.virtual_machines
+    virtual_machines             = var.virtual_machines
+    azurerm_disk_encryption_sets = var.azurerm_disk_encryption_sets
   }
 
   networking = {
@@ -27,6 +28,7 @@ module "caf" {
 
   security = {
     dynamic_keyvault_secrets = var.dynamic_keyvault_secrets
+    keyvault_keys            = var.keyvault_keys
   }
 }
 

@@ -16,12 +16,13 @@ locals {
   }
 
   compute = {
-    aks_clusters               = try(var.compute.aks_clusters, {})
-    availability_sets          = try(var.compute.availability_sets, {})
-    azure_container_registries = try(var.compute.azure_container_registries, {})
-    bastion_hosts              = try(var.compute.bastion_hosts, {})
-    proximity_placement_groups = try(var.compute.proximity_placement_groups, {})
-    virtual_machines           = try(var.compute.virtual_machines, {})
+    aks_clusters                 = try(var.compute.aks_clusters, {})
+    availability_sets            = try(var.compute.availability_sets, {})
+    azure_container_registries   = try(var.compute.azure_container_registries, {})
+    azurerm_disk_encryption_sets = try(var.compute.azurerm_disk_encryption_sets, {})
+    bastion_hosts                = try(var.compute.bastion_hosts, {})
+    proximity_placement_groups   = try(var.compute.proximity_placement_groups, {})
+    virtual_machines             = try(var.compute.virtual_machines, {})
   }
 
   storage = {
