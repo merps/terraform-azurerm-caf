@@ -7,6 +7,16 @@ terraform {
   }
 }
 
+terraform {
+  required_providers {
+    azurecaf = {
+      source = "aztfmod/azurecaf"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
+
 provider "azurerm" {
   # Configuration options
 
@@ -33,6 +43,9 @@ data "azurerm_subnet" "subnet" {
   resource_group_name  = data.azurerm_resource_group.resourceGroup.name
 }
 
+module "nginx_ngs" {
+  source = "."
+}
 # Security group to allow inbound access on port 80 (http) and 22 (ssh)
 resource "azurerm_network_security_group" "nginx-NSG" {
   name                = "${var.prefix}-sg"
